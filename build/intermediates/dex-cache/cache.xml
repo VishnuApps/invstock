@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\All\wedo_music-master\wedo_music-master\InventoryStock\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="750848814597eb89e18df70e8eddfb3e2d802e5d">
+        <dex dex="D:\All\wedo_music-master\wedo_music-master\InventoryStock\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_0c8bb01ef1724c61270e751488f822a0ddb1a072\classes.dex" />
+    </item>
+    <item
+        jar="D:\All\wedo_music-master\wedo_music-master\InventoryStock\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d5ab92e2b032c726e2c1206d7226a34eb68a95e5">
+        <dex dex="D:\All\wedo_music-master\wedo_music-master\InventoryStock\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_f923a12b3fbb364228cc96ade19d9548490298c1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Eclipse\adt-bundle-windows-x86_64-20140702\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="D:\All\wedo_music-master\wedo_music-master\InventoryStock\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-v4-18.0.0_699c8551952f229ed130de31edba6542dbf685ec\classes.dex" />
+    </item>
+
+</items>
