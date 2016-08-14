@@ -6,76 +6,47 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.ptg.inventory.Object.BottleDataDo;
 import com.ptg.inventory.activity.R;
+import com.ptg.inventory.adapter.BottleDetailsAdapter;
 import com.ptg.inventory.model.ItemBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class DeliveryStockFragment extends android.app.Fragment {
+
+    private ListView lvBottles = null;
+    private EditText etOpeningCottonBox = null;
+    private EditText etOpeningLooseBottle = null;
+    private EditText etClosingCottonBox = null;
+    private EditText etClosingLooseBottle = null;
+    private TextView tvDiscount = null;
+    private TextView tvDamagedItems = null;
+    private TextView tvTotalAmt = null;
+    private ArrayList<BottleDataDo> alBottleDetails = null;
+
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        //Inflate the layout for this fragment
-
-        View view = inflater.inflate(
-                R.layout.fragment_del_stock, container, false);
-        ListView listView = (ListView) view.findViewById(R.id.lv_delsotck);
-
-        listView.setAdapter(new NewsAdapter(getActivity(), null));
-        return view;
-
-
+        View deliveryStockView = inflater.inflate(R.layout.fragment_del_stock, container, false);
+        initializeUIComponents(deliveryStockView);
+        for(int i=0;i<20;i++){
+            BottleDataDo objBottleDo = new BottleDataDo(10,2,8,1,10,3,2000);
+            alBottleDetails.add(objBottleDo);
+        }
+        BottleDetailsAdapter adapter = new BottleDetailsAdapter(getActivity(),alBottleDetails);
+        lvBottles.setAdapter(adapter);
+        return deliveryStockView;
     }
 
-
-    class NewsAdapter extends BaseAdapter {
-        List<ItemBean> arr_tournamentList1;
-
-        Context mContext;
-
-        public NewsAdapter(Context _MyContext, List<ItemBean> arr_tournamentList) {
-            // TODO Auto-generated constructor stub
-            this.arr_tournamentList1 = arr_tournamentList;
-            mContext = _MyContext;
-            this.mContext = _MyContext;
-
-        }
-
-        @Override
-        public int getCount() {
-            // TODO Auto-generated method stub
-            return 15;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            // TODO Auto-generated method stub
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            // TODO Auto-generated method stub
-            return position;
-        }
-
-        @Override
-        public View getView(int arg0, View arg1, ViewGroup arg2) {
-            // TODO Auto-generated method stub
-
-            if (arg1 == null) {
-                LayoutInflater li = getActivity().getLayoutInflater();
-                arg1 = li.inflate(R.layout.fragment_delvstock_item, arg2, false);
-
-            }
-
-
-            return arg1;
-        }
-
+    public void initializeUIComponents(View v){
+        lvBottles = (ListView) v.findViewById(R.id.lv_bottels);
+        alBottleDetails = new ArrayList<BottleDataDo>();
     }
 }
