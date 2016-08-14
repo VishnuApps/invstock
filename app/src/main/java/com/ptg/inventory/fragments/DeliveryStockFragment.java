@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class DeliveryStockFragment extends android.app.Fragment {
 
+    private LinearLayout llStock = null;
     private ListView lvBottles = null;
     private EditText etOpeningCottonBox = null;
     private EditText etOpeningLooseBottle = null;
@@ -36,17 +38,27 @@ public class DeliveryStockFragment extends android.app.Fragment {
 
         View deliveryStockView = inflater.inflate(R.layout.fragment_del_stock, container, false);
         initializeUIComponents(deliveryStockView);
-        for(int i=0;i<20;i++){
+        for(int i=0;i<5;i++){
             BottleDataDo objBottleDo = new BottleDataDo(10,2,8,1,10,3,2000);
             alBottleDetails.add(objBottleDo);
+            addItem(llStock);
         }
-        BottleDetailsAdapter adapter = new BottleDetailsAdapter(getActivity(),alBottleDetails);
-        lvBottles.setAdapter(adapter);
+       /* BottleDetailsAdapter adapter = new BottleDetailsAdapter(getActivity(),alBottleDetails);
+        lvBottles.setAdapter(adapter);*/
         return deliveryStockView;
     }
 
     public void initializeUIComponents(View v){
-        lvBottles = (ListView) v.findViewById(R.id.lv_bottels);
         alBottleDetails = new ArrayList<BottleDataDo>();
+        llStock = (LinearLayout)v.findViewById(R.id.ll_stock);
+    }
+    public void addItem(LinearLayout ll) {
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        View v = inflater.inflate(R.layout.bottles_list_item, null);
+        EditText etOpenCB = (EditText)v.findViewById(R.id.et_opening_cottonBox);
+        EditText etOpenLB = (EditText)v.findViewById(R.id.et_opening_looseBottle);
+        EditText etCloseCB = (EditText)v.findViewById(R.id.et_closing_cottonBox);
+        EditText etCloseLB = (EditText)v.findViewById(R.id.et_closing_looseBottle);
+        ll.addView(v);
     }
 }
