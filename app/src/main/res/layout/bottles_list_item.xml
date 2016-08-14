@@ -32,6 +32,8 @@
         android:background="@drawable/et_bg"
         android:layout_width="40dp"
         android:gravity="center"
+         android:singleLine="true"
+         android:inputType="number"
         android:layout_height="wrap_content"
         android:hint="10"
        />
@@ -39,8 +41,10 @@
             android:id="@+id/et_opening_looseBottle"
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
+            android:singleLine="true"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:inputType="number"
             android:hint="2"
             />
     </LinearLayout>
@@ -56,7 +60,9 @@
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:gravity="center"
+            android:singleLine="true"
             android:hint="10"
             />
         <EditText
@@ -64,6 +70,8 @@
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
             android:gravity="center"
+            android:inputType="number"
+            android:singleLine="true"
             android:layout_height="wrap_content"
             android:hint="2"
             />

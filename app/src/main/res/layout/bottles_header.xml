@@ -27,7 +27,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <TextView
+            android:text="Opening Stock"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
         <EditText
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
@@ -46,6 +57,7 @@
             android:textStyle="bold"
             android:editable="false"
             />
+            </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_weight="4"

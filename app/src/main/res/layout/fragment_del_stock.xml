@@ -6,12 +6,20 @@
     android:background="#FBFBFB">
     <include layout="@layout/bottles_header">
     </include>
-    <ListView
+    <ScrollView
         android:layout_weight="1"
         android:id="@+id/lv_bottels"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_stock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+        </ScrollView>
     <include layout="@layout/bottles_footer">
     </include>
 </LinearLayout>
