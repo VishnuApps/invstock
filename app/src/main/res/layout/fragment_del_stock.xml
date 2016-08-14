@@ -4,16 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FBFBFB">
-
-
-
+    <include layout="@layout/bottles_header">
+    </include>
     <ListView
-        android:id="@+id/lv_delsotck"
+        android:layout_weight="1"
+        android:id="@+id/lv_bottels"
         android:layout_width="match_parent"
-        android:dividerHeight="1dp"
-        android:divider="@android:color/black"
-        android:layout_height="match_parent"></ListView>
-
-
-
+        android:layout_height="match_parent"
+        />
+    <include layout="@layout/bottles_footer">
+    </include>
 </LinearLayout>
