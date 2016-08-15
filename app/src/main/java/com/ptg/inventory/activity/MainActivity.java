@@ -2,7 +2,6 @@ package com.ptg.inventory.activity;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import com.ptg.inventory.adapter.NavDrawerListAdapter;
 import com.ptg.inventory.fragments.ContactUsFragment;
 import com.ptg.inventory.fragments.DeliveryStockFragment;
@@ -23,8 +21,6 @@ import com.ptg.inventory.fragments.ReportsFragment;
 import com.ptg.inventory.model.NavDrawerItem;
 
 import java.util.ArrayList;
-
-
 
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
@@ -168,7 +164,7 @@ public class MainActivity extends Activity {
 	 * */
 	private void displayView(int position) {
 		// update the main content by replacing fragments
-		Fragment fragment = null;
+        Fragment fragment = null;
 		switch (position) {
 		case 0:
 			fragment = new InwordFragment();
@@ -183,16 +179,10 @@ public class MainActivity extends Activity {
 			fragment = new ContactUsFragment();
 			break;
 
-
-		default:
-			break;
 		}
 
 		if (fragment != null) {
-			FragmentManager fragmentManager = getFragmentManager();
-			fragmentManager.beginTransaction()
-					.replace(R.id.frame_container, fragment).commit();
-
+			getFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);
 			mDrawerList.setSelection(position);

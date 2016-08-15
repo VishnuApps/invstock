@@ -49,6 +49,7 @@
             android:layout_height="wrap_content">
         </TextView>
         <LinearLayout
+            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -57,18 +58,16 @@
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
             android:gravity="center"
-            android:layout_height="40dp"
-            android:text="CB"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:hint="CB"
             android:editable="false"
             />
         <EditText
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="LB"
-            android:textStyle="bold"
+            android:hint="LB"
             android:editable="false"
             />
             </LinearLayout>
@@ -91,24 +90,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
         <EditText
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textStyle="bold"
             android:editable="false"
-            android:text="CB"
+            android:hint="CB"
             />
         <EditText
             android:background="@drawable/et_bg"
             android:layout_width="40dp"
             android:gravity="center"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:editable="false"
-            android:textStyle="bold"
-            android:text="LB"
+            android:hint="LB"
             />
             </LinearLayout>
     </LinearLayout>

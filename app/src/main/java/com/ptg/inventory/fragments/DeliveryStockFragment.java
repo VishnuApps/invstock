@@ -1,36 +1,37 @@
 package com.ptg.inventory.fragments;
 
-import android.content.Context;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import com.ptg.inventory.Object.BottleDataDo;
 import com.ptg.inventory.activity.R;
-import com.ptg.inventory.adapter.BottleDetailsAdapter;
-import com.ptg.inventory.model.ItemBean;
-
+import com.ptg.inventory.components.DiscountDialog;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class DeliveryStockFragment extends android.app.Fragment {
+public class DeliveryStockFragment extends Fragment {
 
     private LinearLayout llStock = null;
     private ListView lvBottles = null;
-    private EditText etOpeningCottonBox = null;
-    private EditText etOpeningLooseBottle = null;
-    private EditText etClosingCottonBox = null;
-    private EditText etClosingLooseBottle = null;
+    private TextView bottleName = null;
+    private EditText etOpeningCB = null;
+    private EditText etOpeningLoose = null;
+    private EditText etClosingCB = null;
+    private EditText etClosingLoose = null;
     private TextView tvDiscount = null;
-    private TextView tvDamagedItems = null;
-    private TextView tvTotalAmt = null;
+    private TextView tvDamage = null;
+    private TextView tvAmt = null;
+    private  LinearLayout llDiscount = null;
+    private LinearLayout llDamage = null;
     private ArrayList<BottleDataDo> alBottleDetails = null;
 
     @Override
@@ -43,6 +44,7 @@ public class DeliveryStockFragment extends android.app.Fragment {
             alBottleDetails.add(objBottleDo);
             addItem(llStock);
         }
+
         return deliveryStockView;
     }
 
@@ -51,12 +53,39 @@ public class DeliveryStockFragment extends android.app.Fragment {
         llStock = (LinearLayout)v.findViewById(R.id.ll_stock);
     }
     public void addItem(LinearLayout ll) {
+
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View v = inflater.inflate(R.layout.bottles_list_item, null);
-        EditText etOpenCB = (EditText)v.findViewById(R.id.et_opening_cottonBox);
-        EditText etOpenLB = (EditText)v.findViewById(R.id.et_opening_looseBottle);
-        EditText etCloseCB = (EditText)v.findViewById(R.id.et_closing_cottonBox);
-        EditText etCloseLB = (EditText)v.findViewById(R.id.et_closing_looseBottle);
+        bottleName = (TextView)v.findViewById(R.id.tv_bottles);
+        etOpeningCB = (EditText)v.findViewById(R.id.et_opening_cottonBox);
+        etOpeningLoose = (EditText)v.findViewById(R.id.et_opening_looseBottle);
+        etClosingCB =(EditText)v.findViewById(R.id.et_closing_cottonBox);
+        etClosingLoose = (EditText)v.findViewById(R.id.et_closing_looseBottle);
+        tvDiscount = (TextView)v.findViewById(R.id.tv_discount);
+        llDiscount = (LinearLayout)v.findViewById(R.id.llDiscount);
+        llDamage = (LinearLayout)v.findViewById(R.id.llDamagedItems);
+        tvDamage = (TextView)v.findViewById(R.id.tv_damage);
+        tvAmt = (TextView)v.findViewById(R.id.tv_amt);
         ll.addView(v);
+        llDiscount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Log.v("Hello", "Hello");
+                // Show DialogFragment
+                new DiscountDialog().show(getFragmentManager(),"");
+            }
+        });
+
+
+        llDamage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.v("hi", "Hi");
+                Toast.makeText(getActivity(), "Hii", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
+
 }

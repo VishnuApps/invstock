@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.ptg.inventory.activity.MainActivity;
 import com.ptg.inventory.activity.R;
 

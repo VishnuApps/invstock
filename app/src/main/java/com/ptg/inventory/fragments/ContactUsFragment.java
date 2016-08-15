@@ -1,13 +1,10 @@
 package com.ptg.inventory.fragments;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.ptg.inventory.activity.R;
-
 
 public class ContactUsFragment extends Fragment {
 

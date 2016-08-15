@@ -1,12 +1,15 @@
 package com.ptg.inventory.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ptg.inventory.Object.BottleDataDo;
 import com.ptg.inventory.activity.R;
@@ -58,8 +61,29 @@ public class BottleDetailsAdapter extends BaseAdapter {
         EditText etClosingCB =(EditText)v.findViewById(R.id.et_closing_cottonBox);
         EditText etClosingLoose = (EditText)v.findViewById(R.id.et_closing_looseBottle);
         TextView tvDiscount = (TextView)v.findViewById(R.id.tv_discount);
+        LinearLayout llDiscount = (LinearLayout)v.findViewById(R.id.llDiscount);
+        LinearLayout llDamage = (LinearLayout)v.findViewById(R.id.llDamagedItems);
         TextView tvDamage = (TextView)v.findViewById(R.id.tv_damage);
         TextView tvAmt = (TextView)v.findViewById(R.id.tv_amt);
+        llDiscount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Log.v("Hello", "Hello");
+                Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        llDamage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.v("hi", "Hi");
+                Toast.makeText(context, "Hii", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         return v;
     }
 }
