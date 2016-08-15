@@ -32,6 +32,7 @@ public class DeliveryStockFragment extends Fragment {
     private TextView tvAmt = null;
     private  LinearLayout llDiscount = null;
     private LinearLayout llDamage = null;
+    private LinearLayout llExpenses = null;
     private ArrayList<BottleDataDo> alBottleDetails = null;
 
     @Override
@@ -44,13 +45,19 @@ public class DeliveryStockFragment extends Fragment {
             alBottleDetails.add(objBottleDo);
             addItem(llStock);
         }
-
+        llExpenses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DiscountDialog().show(getFragmentManager(),"");
+            }
+        });
         return deliveryStockView;
     }
 
     public void initializeUIComponents(View v){
         alBottleDetails = new ArrayList<BottleDataDo>();
         llStock = (LinearLayout)v.findViewById(R.id.ll_stock);
+        llExpenses= (LinearLayout)v.findViewById(R.id.llExpenses);
     }
     public void addItem(LinearLayout ll) {
 
@@ -82,7 +89,7 @@ public class DeliveryStockFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.v("hi", "Hi");
-                Toast.makeText(getActivity(), "Hii", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getActivity(), "Hii", Toast.LENGTH_SHORT).show();
 
             }
         });
