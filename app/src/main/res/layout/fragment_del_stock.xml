@@ -11,13 +11,11 @@
         android:id="@+id/lv_bottels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:id="@+id/ll_stock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
         </LinearLayout>
         </ScrollView>
     <include layout="@layout/bottles_footer">

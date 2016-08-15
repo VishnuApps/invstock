@@ -39,12 +39,10 @@ public class DeliveryStockFragment extends android.app.Fragment {
         View deliveryStockView = inflater.inflate(R.layout.fragment_del_stock, container, false);
         initializeUIComponents(deliveryStockView);
         for(int i=0;i<5;i++){
-            BottleDataDo objBottleDo = new BottleDataDo(10,2,8,1,10,3,2000);
+            BottleDataDo objBottleDo = new BottleDataDo("Kinley",1000,10,2,8,1,10,3,2000);
             alBottleDetails.add(objBottleDo);
             addItem(llStock);
         }
-       /* BottleDetailsAdapter adapter = new BottleDetailsAdapter(getActivity(),alBottleDetails);
-        lvBottles.setAdapter(adapter);*/
         return deliveryStockView;
     }
 

@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 public class BottleDataDo implements Serializable {
 
+    public String item = "";
+    public int qty = -1;
     public int openingStockCottonBox = -1;
     public int openingStockLooseBottle = -1;
     public int closingStockCottonBox = -1;
@@ -15,7 +17,9 @@ public class BottleDataDo implements Serializable {
     public int damage = -1;
     public int amount = -1;
 
-    public BottleDataDo(int openingStockCottonBox, int openingStockLooseBottle, int closingStockCottonBox, int closingStockLooseBottle, int discount, int damage, int amount){
+    public BottleDataDo(String item,int qty,int openingStockCottonBox, int openingStockLooseBottle, int closingStockCottonBox, int closingStockLooseBottle, int discount, int damage, int amount){
+        this.item = item;
+        this.qty = qty;
         this.openingStockCottonBox = openingStockCottonBox;
         this.openingStockLooseBottle = openingStockLooseBottle;
         this.closingStockCottonBox = closingStockCottonBox;
