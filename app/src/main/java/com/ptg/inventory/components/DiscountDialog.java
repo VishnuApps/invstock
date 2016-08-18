@@ -35,25 +35,22 @@ public class DiscountDialog extends DialogFragment {
     private ImageView imgIncrease = null;
     private ImageView imgDecrease = null;
     private LinearLayout llAddItem = null;
-    private int discount_itemCount = 0;
+    private int discount_itemCount = 1;
     private TextView tvTotalAmount = null;
     private ArrayList<BottleDataObject> al_DummyBottlesDo = null;
     private ArrayList<BottleDataDo> al_discItemInfo = null;
     private ArrayAdapter<String> dataAdapter = null;
+    private String mTitle = "";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View discountView = inflater.inflate(R.layout.discount_dialog, container,false);
-     //   getDialog().setTitle("Discount Dialog");
+        View discountView = inflater.inflate(R.layout.discount_dialog, container, false);
+        getDialog().setTitle(mTitle);
+        Bundle mArgs = getArguments();
+        getDialog().setTitle(mArgs.getString("title"));
         initializeUIComponents(discountView);
         addItem(llAddItem);
+        setDecreaseImageClick();
 
-        if(discount_itemCount>1){
-            Log.v("111","item count >1");
-             imgDecrease.setClickable(false);
-        }else{
-            Log.v("111","item count 1");
-            imgDecrease.setClickable(true);
-        }
             //Increase Image clicked
         imgIncrease.setOnClickListener(new View.OnClickListener() {
 
@@ -105,35 +102,43 @@ public class DiscountDialog extends DialogFragment {
                          isEmpty = false;
                     }else{
                          isEmpty = true;
-                         break;
+                         Toast.makeText(getActivity(),"Please Enter All fields",Toast.LENGTH_LONG).show();
+                         return;
                      }
             }
-            if(isEmpty == true){
-                Toast.makeText(getActivity(),"Please Enter All fields",Toast.LENGTH_LONG).show();
-            }else{
+            if(isEmpty == false){
                  if(al_discItemInfo != null && al_discItemInfo.size()>0){
                      int totalDiscountCount = 0;
                      for(int i=0;i<al_discItemInfo.size();i++){
                          BottleDataDo bDO = al_discItemInfo.get(i);
                          totalDiscountCount = totalDiscountCount + bDO.amount;
                      }
+                     discount_itemCount = discount_itemCount+1;
                      tvTotalAmount.setText(""+totalDiscountCount);
                      addItem(llAddItem);
+                     setDecreaseImageClick();
                  }
             }
         }
     }
 
+    public void setDecreaseImageClick(){
+        Log.v("111", "item count====>" + discount_itemCount);
+        if(discount_itemCount>1){
+           imgDecrease.setClickable(true);
+        }else{
+            imgDecrease.setClickable(false);
+        }
+    }
+
     //decrease items count
     public void reduceItemCount(){
-
-    if(discount_itemCount>1){
-                imgDecrease.setClickable(true);
+        Log.v("decrease","before decrease item count===>"+discount_itemCount);
+        if(discount_itemCount>1){
                 if(al_DummyBottlesDo != null && al_DummyBottlesDo.size() >1){
                     al_DummyBottlesDo.remove(al_DummyBottlesDo.size() - 1);
-                    llAddItem.removeViewAt(discount_itemCount - 1);
+                    llAddItem.removeViewAt((discount_itemCount) - 1);
                     llAddItem.refreshDrawableState();
-                Log.v("remove", "removed Item size===" + al_DummyBottlesDo.size());
                 int totalDiscountCountAfterMinus = 0;
                 for(int i=0;i<al_DummyBottlesDo.size();i++){
                     BottleDataObject dao = al_DummyBottlesDo.get(i);
@@ -141,11 +146,14 @@ public class DiscountDialog extends DialogFragment {
                     totalDiscountCountAfterMinus = totalDiscountCountAfterMinus+Integer.parseInt(amt);
                 }
                 tvTotalAmount.setText("" + totalDiscountCountAfterMinus);
-
             }
-    }else{
-                imgDecrease.setClickable(false);
-        }
+            discount_itemCount = discount_itemCount-1;
+                Log.v("remove", "removed Item size===" + al_DummyBottlesDo.size());
+                Log.v("decrease","after decrease item count===>"+discount_itemCount);
+
+            }else{
+                     Toast.makeText(getActivity(),"You cant delete item",Toast.LENGTH_LONG).show();
+    }
     }
 
     public void initializeUIComponents(View v){
@@ -165,13 +173,7 @@ public class DiscountDialog extends DialogFragment {
         etAmt = (EditText)v.findViewById(R.id.et_dialog_amt);
         BottleDataObject bottlesDAO = new BottleDataObject(tvItem,etCB,etLB,etAmt,true);
         al_DummyBottlesDo.add(bottlesDAO);
-        if(discount_itemCount>1){
-            imgDecrease.setClickable(true);
-        }else{
-            imgDecrease.setClickable(false);
-        }
         Log.v("disc","disc item count=="+discount_itemCount);
-        discount_itemCount++;
         ll.addView(v);
     }
 }

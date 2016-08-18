@@ -1,5 +1,6 @@
 package com.ptg.inventory.fragments;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,7 +48,12 @@ public class DeliveryStockFragment extends Fragment {
         llExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DiscountDialog().show(getFragmentManager(),"Expenses Dialog");
+                Bundle args = new Bundle();
+                args.putString("title", "Expenses Dialog");
+                DialogFragment newFragment = new DiscountDialog();
+                newFragment.setArguments(args);
+                newFragment.show(getFragmentManager(), "TAG");
+               // new DiscountDialog().show(getFragmentManager(), "Expenses Dialog");
             }
         });
         return deliveryStockView;
@@ -77,9 +83,12 @@ public class DeliveryStockFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Log.v("Hello", "Hello");
+                Bundle args = new Bundle();
+                args.putString("title", "Discount Dialog");
+                DialogFragment newFragment = new DiscountDialog();
+                newFragment.setArguments(args);
+                newFragment.show(getFragmentManager(), "TAG");
                 // Show DialogFragment
-                new DiscountDialog().show(getFragmentManager(),"Discounts Dialog");
             }
         });
 
