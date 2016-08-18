@@ -5,103 +5,110 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+        android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:text="Item(ml)"
+        android:textStyle="bold">
+       </TextView>
         <TextView
-            android:id="@+id/tvTitle_itemName"
-            android:layout_width="150dp"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Item(ml)"
-            android:textStyle="bold"
-            android:layout_centerVertical="true">
+            android:text="CB"
+            android:gravity="center"
+            android:textStyle="bold">
         </TextView>
         <TextView
-            android:id="@+id/tvtile_qty"
-            android:layout_toRightOf="@+id/tvTitle_itemName"
-            android:layout_width="100dp"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:text="Quantity"
-            />
+            android:gravity="center"
+            android:text="LB"
+            android:textStyle="bold">
+        </TextView>
         <TextView
-            android:layout_toRightOf="@+id/tvtile_qty"
-            android:layout_width="100dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:layout_centerVertical="true"
             android:text="Amount"
             />
-        <ImageView
-            android:layout_toLeftOf="@+id/img_delete"
-            android:layout_marginRight="10dp"
-            android:id="@+id/img_add"
-            android:layout_width="50dp"
-            android:layout_centerVertical="true"
-            android:layout_height="50dp"
-            android:src="@drawable/add"/>
+        <LinearLayout
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_add"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/plus"/>
 
-        <ImageView
-            android:layout_alignParentRight="true"
-            android:id="@+id/img_delete"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/delete"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-            <Spinner
-                android:id="@+id/sd_spinner"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content">
-            </Spinner>
-            <EditText
-                android:layout_toRightOf="@+id/sd_spinner"
-                android:id="@+id/et_dialog_qty"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
-                android:padding="10dp"
+            <ImageView
+                android:id="@+id/img_delete"
                 android:layout_marginLeft="10dp"
-                android:singleLine="true"
-                android:hint="10"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/minus"
                 />
-        <EditText
-            android:id="@+id/et_dialog_amt"
-            android:layout_toRightOf="@+id/et_dialog_qty"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/et_bg"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:singleLine="true"
-            android:text="1000"
-            />
-    </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_weight="1">
+        <LinearLayout
+            android:id="@+id/ll_discountDialogItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0">
 
+        <LinearLayout
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
         <TextView
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:gravity="center"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_weight="3.3"
             android:id="@+id/tv_dialog_total"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="1000"/>
-        <TextView
-            android:layout_toLeftOf="@+id/tv_dialog_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total Amount"
-            android:layout_marginRight="10dp"/>
-    </RelativeLayout>
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            />
+    </LinearLayout>
 </LinearLayout>

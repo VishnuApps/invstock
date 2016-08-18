@@ -6,17 +6,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.ptg.inventory.Object.BottleDataDo;
+
 import com.ptg.inventory.activity.R;
 import com.ptg.inventory.components.DiscountDialog;
+import com.ptg.inventory.model.BottleDataDo;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class DeliveryStockFragment extends Fragment {
 
@@ -48,7 +47,7 @@ public class DeliveryStockFragment extends Fragment {
         llExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DiscountDialog().show(getFragmentManager(),"");
+                new DiscountDialog().show(getFragmentManager(),"Expenses Dialog");
             }
         });
         return deliveryStockView;
@@ -80,7 +79,7 @@ public class DeliveryStockFragment extends Fragment {
 
                 Log.v("Hello", "Hello");
                 // Show DialogFragment
-                new DiscountDialog().show(getFragmentManager(),"");
+                new DiscountDialog().show(getFragmentManager(),"Discounts Dialog");
             }
         });
 

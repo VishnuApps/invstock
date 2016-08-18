@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ptg.inventory.Object.BottleDataDo;
 import com.ptg.inventory.activity.R;
+import com.ptg.inventory.model.BottleDataDo;
 
 import java.util.ArrayList;
 
