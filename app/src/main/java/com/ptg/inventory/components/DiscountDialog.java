@@ -6,11 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,10 +16,7 @@ import com.ptg.inventory.activity.R;
 import com.ptg.inventory.model.BottleDataDo;
 import com.ptg.inventory.model.BottleDataObject;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by viddy on 8/15/2016.
@@ -88,7 +83,7 @@ public class DiscountDialog extends DialogFragment {
                      if((!cb.equalsIgnoreCase("") || !lb.equalsIgnoreCase("")) && !amt.equalsIgnoreCase("")){
                          BottleDataDo bDataDo = new BottleDataDo();
 
-                         if(!cb.equalsIgnoreCase(""))
+                       /*  if(!cb.equalsIgnoreCase(""))
                          bDataDo.openingStockCottonBox = Integer.parseInt(cb);
 
                          if(!lb.equalsIgnoreCase(""))
@@ -97,7 +92,7 @@ public class DiscountDialog extends DialogFragment {
                          if(!amt.equalsIgnoreCase(""))
                          bDataDo.amount = Integer.parseInt(amt);
 
-                         bDataDo.qty = Integer.parseInt(itemIn_ml);
+                         bDataDo.qty = Integer.parseInt(itemIn_ml);*/
                          al_discItemInfo.add(bDataDo);
                          isEmpty = false;
                     }else{
@@ -111,7 +106,7 @@ public class DiscountDialog extends DialogFragment {
                      int totalDiscountCount = 0;
                      for(int i=0;i<al_discItemInfo.size();i++){
                          BottleDataDo bDO = al_discItemInfo.get(i);
-                         totalDiscountCount = totalDiscountCount + bDO.amount;
+                         totalDiscountCount = totalDiscountCount ;//+ bDO.amount;
                      }
                      discount_itemCount = discount_itemCount+1;
                      tvTotalAmount.setText(""+totalDiscountCount);

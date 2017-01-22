@@ -1,6 +1,8 @@
 package com.ptg.inventory.activity;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -12,15 +14,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.ListView;
+
 import com.ptg.inventory.adapter.NavDrawerListAdapter;
-import com.ptg.inventory.fragments.ContactUsFragment;
+import com.ptg.inventory.fragments.DamagesFragment;
 import com.ptg.inventory.fragments.DeliveryStockFragment;
-import com.ptg.inventory.fragments.InwordFragment;
+import com.ptg.inventory.fragments.InwardListFragment;
+import com.ptg.inventory.fragments.NonMovingProductSettingsFragment;
+import com.ptg.inventory.fragments.ProductListFragment;
 import com.ptg.inventory.fragments.ReportsFragment;
+import com.ptg.inventory.fragments.VariableFragment;
 import com.ptg.inventory.model.NavDrawerItem;
+import com.ptg.inventory.utils.Constants;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
@@ -28,7 +37,11 @@ public class MainActivity extends Activity {
 	private ActionBarDrawerToggle mDrawerToggle;
 
 	public static MainActivity _CONTEXT;
+	public int year;
+	public int month;
+	public int day;
 
+	static final int DATE_PICKER_ID = 1111;
 	// nav drawer title
 	private CharSequence mDrawerTitle;
 
@@ -47,6 +60,12 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		_CONTEXT=MainActivity.this;
+
+		final Calendar c = Calendar.getInstance();
+		year  = c.get(Calendar.YEAR);
+		month = c.get(Calendar.MONTH);
+		day   = c.get(Calendar.DAY_OF_MONTH);
+
 
 		mTitle = mDrawerTitle = getTitle();
 
@@ -73,6 +92,10 @@ public class MainActivity extends Activity {
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3]));
 		// Contact us
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4]));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5]));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6]));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[7]));
+		//navDrawerItems.add(new NavDrawerItem(navMenuTitles[8]));
 
 
 		// Recycle the typed array
@@ -110,7 +133,7 @@ public class MainActivity extends Activity {
 
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
-			displayView(0);
+			displayView(Constants.NAVITEM);
 		}
 	}
 
@@ -166,24 +189,39 @@ public class MainActivity extends Activity {
 		// update the main content by replacing fragments
         Fragment fragment = null;
 		switch (position) {
+			/*case 0:
+				fragment = new HomeFragment();
+				break;*/
 		case 0:
-			fragment = new InwordFragment();
+			fragment = new InwardListFragment();
 			break;
 		case 1:
 			fragment = new DeliveryStockFragment();
 			break;
-		case 2:
+
+			case 2:
+				fragment = new DamagesFragment();
+				break;
+
+			case 3:
+				fragment = new VariableFragment();
+				break;
+
+			case 4:
+				fragment = new NonMovingProductSettingsFragment();
+				break;
+			case 5:
+				fragment = new ProductListFragment();
+				break;
+		case 6:
 			fragment = new ReportsFragment();
 			break;
-		case 3:
-			fragment = new ContactUsFragment();
-			break;
+
 
 		}
 
 		if (fragment != null) {
-			getFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).commit();
-			// update selected item and title, then close the drawer
+			getFragmentManager().beginTransaction().replace(R.id.frame_container, fragment).addToBackStack("frag").commit();
 			mDrawerList.setItemChecked(position, true);
 			mDrawerList.setSelection(position);
 			setTitle(navMenuTitles[position]);
@@ -200,11 +238,6 @@ public class MainActivity extends Activity {
 		getActionBar().setTitle(mTitle);
 	}
 
-	/**
-	 * When using the ActionBarDrawerToggle, you must call it during
-	 * onPostCreate() and onConfigurationChanged()...
-	 */
-
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
@@ -218,5 +251,52 @@ public class MainActivity extends Activity {
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
+
+
+	@Override
+	public Dialog onCreateDialog(int id) {
+		switch (id) {
+			case DATE_PICKER_ID:
+
+				// open datepicker dialog.
+				// set date picker for current date
+				// add pickerListener listner to date picker
+				return new DatePickerDialog(this, pickerListener, year, month,day);
+
+		}
+		return null;
+	}
+
+	private DatePickerDialog.OnDateSetListener pickerListener = new DatePickerDialog.OnDateSetListener() {
+
+		// when dialog box is closed, below method will be called.
+		@Override
+		public void onDateSet(DatePicker view, int selectedYear,
+							  int selectedMonth, int selectedDay) {
+
+			year  = selectedYear;
+			month = selectedMonth;
+			day   = selectedDay;
+
+			// Show selected date
+
+			//if(  Constants.dateID==100) {
+			Constants.strDeliveryStockDate=""+new StringBuilder().append(day).append("/").append(month + 1).append("/").append(year).append(" ");
+
+				Constants.strInwardDate=""+new StringBuilder().append(day).append("/").append(month + 1).append("/").append(year).append(" ");
+				HomeActivity.btn_Date.setText(Constants.strInwardDate);
+			/*}else if(  Constants.dateID==200) {
+				Constants.strDeliveryStockDate=""+new StringBuilder().append(day).append("/").append(month + 1).append("/").append(year).append(" ");
+
+				DeliveryStockFragment.et_Date.setText(Constants.strDeliveryStockDate);
+			}*/
+
+
+
+		}
+	};
+
+
+
 
 }

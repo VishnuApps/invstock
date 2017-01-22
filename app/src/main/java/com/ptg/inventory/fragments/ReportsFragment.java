@@ -14,7 +14,7 @@ public class ReportsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_reports, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_add_discounts, container, false);
          
         return rootView;
     }

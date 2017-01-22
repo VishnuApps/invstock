@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Slider Menu</string>
+    <string name="app_name">Inventery</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="drawer_open">Slider Menu Opened</string>
@@ -9,11 +9,77 @@
     
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
+
         <item >Inwords</item>
         <item >Stock Delivery</item>
+        <item >Damages</item>
+        <item >Settings</item>
+        <item >Non Moving Items</item>
         <item >Products</item>
         <item >Reports</item>
         <item >Contact Us</item>
+
+    </string-array>
+
+    <string-array name="exp_array">
+        <item >Tea</item>
+        <item >Stationary</item>
+        <item >Meals</item>
+        <item >Petrol</item>
+        <item >Logistics / frieght</item>
+        <item >Repairs</item>
+        <item >Reapirs - Others</item>
+        <item >Salaries amp; sal Advance</item>
+        <item >Expnces - P</item>
+        <item >Expnces - E</item>
+        <item >Expnces - DTF</item>
+        <item >Expances - SQ</item>
+        <item >Powerbill</item>
+        <item >FestivalMamul / Donation</item>
+        <item >Pooja Expances</item>
+        <item >Damages</item>
+        <item >Karvy</item>
+        <item >Chits</item>
+        <item >Others 1</item>
+        <item >Others 2</item>
+        <item >Others 3</item>
+        <item >Others 4</item>
+        <item >Partner Share / Advance</item>
+        <item >Exp-SQ-Half</item>
+        <item >Furniture</item>
+        <item >Banners / Name Board</item>
+        <item >Grills from</item>
+        <item >Reporters</item>
+        <item >Association</item>
+        <item >Intrest Payable</item>
+        <item >Application</item>
+        <item >D.D Charges</item>
+        <item >Good Will</item>
+        <item >Naukar</item>
+        <item >Debitors List Credit/Debit</item>
+        <item >Discount Price - Name</item>
+        <item >Counter Feit Notes</item>
+        <item >Penalty - LF</item>
+        <item >Stock expances</item>
+        <item >Cheques / Schemes</item>
+        <item >Chit Encash</item>
+        <item >W.P</item>
+        <item >W.B</item>
+        <item >E-Box</item>
+        <item >Manager</item>
+        <item >Rent Shop 1</item>
+        <item >Rent Shop 2</item>
+        <item >Rent Shop 3</item>
+        <item >Interest Receivable</item>
+        <item >Agreement Expances</item>
+        <item >BG Expances</item>
+        <item >Bank Charges</item>
+        <item >P.Room P/C</item>
+        <item >rent - Advance</item>
+
+
+
+
 
     </string-array>
     

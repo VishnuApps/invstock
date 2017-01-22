@@ -1,15 +1,11 @@
 package com.ptg.inventory.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ptg.inventory.activity.R;
 import com.ptg.inventory.model.BottleDataDo;
@@ -56,7 +52,7 @@ public class BottleDetailsAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.bottles_list_item, null);
         TextView bottleName = (TextView)v.findViewById(R.id.tv_bottles);
-        EditText etOpeningCB = (EditText)v.findViewById(R.id.et_opening_cottonBox);
+    /*    EditText etOpeningCB = (EditText)v.findViewById(R.id.et_opening_cottonBox);
         EditText etOpeningLoose = (EditText)v.findViewById(R.id.et_opening_looseBottle);
         EditText etClosingCB =(EditText)v.findViewById(R.id.et_closing_cottonBox);
         EditText etClosingLoose = (EditText)v.findViewById(R.id.et_closing_looseBottle);
@@ -64,8 +60,8 @@ public class BottleDetailsAdapter extends BaseAdapter {
         LinearLayout llDiscount = (LinearLayout)v.findViewById(R.id.llDiscount);
         LinearLayout llDamage = (LinearLayout)v.findViewById(R.id.llDamagedItems);
         TextView tvDamage = (TextView)v.findViewById(R.id.tv_damage);
-        TextView tvAmt = (TextView)v.findViewById(R.id.tv_amt);
-        llDiscount.setOnClickListener(new View.OnClickListener() {
+        TextView tvAmt = (TextView)v.findViewById(R.id.tv_amt);*/
+      /*  llDiscount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -73,17 +69,17 @@ public class BottleDetailsAdapter extends BaseAdapter {
                 Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });*/
 
 
-        llDamage.setOnClickListener(new View.OnClickListener() {
+      /*  llDamage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.v("hi", "Hi");
                 Toast.makeText(context, "Hii", Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });*/
         return v;
     }
 }

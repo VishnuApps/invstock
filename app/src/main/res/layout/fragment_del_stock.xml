@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FBFBFB">
-    <include layout="@layout/bottles_header">
+    <include layout="@layout/fragment_closing_stock">
     </include>
     <ScrollView
         android:layout_weight="1"
